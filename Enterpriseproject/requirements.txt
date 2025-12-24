@@ -1,0 +1,8 @@
+LangChain
+langchain_community
+langchain_huggingface
+typing
+langGraph  
+FAISS 
+dotenv
+streamlit
