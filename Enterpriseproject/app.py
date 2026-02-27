@@ -3,14 +3,18 @@ from typing import TypedDict, List
 from langchain_community.document_loaders import PyMuPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEndpoint
 
 from langchain_community.vectorstores import FAISS
-from langchain_ollama import OllamaLLM
+
 from langgraph.graph import StateGraph, END
 import tempfile
 import os
 
-llm=OllamaLLM(model="tinyllama")
+llm=HuggingFaceEndpoint(
+    repo_id="google/flan-t5-base",
+    temperature=0.5,
+    max_length=512)
 embeddings=HuggingFaceEmbeddings(model="sentence-transformers/all-MiniLM-L6-v2")
 vector_db=None
 
@@ -125,4 +129,5 @@ if st.button("Ask") and query:
 for chat in st.session_state.chat:
     st.markdown(f"**You:** {chat['question']}")
     st.markdown(f"**🤖 AI:** {chat['answer']}")
+
     st.markdown("---")
