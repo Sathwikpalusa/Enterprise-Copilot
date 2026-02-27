@@ -1,8 +1,12 @@
-LangChain
-langchain_community
-langchain_huggingface
+langChain
+langchain-community
+langchain-huggingface
 typing
 langGraph  
-FAISS 
+faiss-cpu
 dotenv
 streamlit
+pymudf
+sentence-transformers
+tiktoken
+huggingface_hub
